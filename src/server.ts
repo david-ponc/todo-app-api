@@ -1,4 +1,4 @@
-import express, { Application, json } from 'express'
+import express, { Application, json, Request, Response } from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import dotEnv from 'dotenv'
@@ -23,6 +23,11 @@ server.use(cors({
 server.use(json())
 server.use(morgan('dev'))
 
+// Welcome Route
+server.get('/', (req: Request, res: Response) => {
+  res.status(200).send({ status: "running" })
+})
+
 // User Auth Routes
 server.get('/users/:identifier/profile', userProfilerController)
 server.post('/users/auth/sign-up', userCreatorController)
@@ -35,5 +40,5 @@ server.post('/tasks/:identifier', taskCreatorController)
 server.put('/tasks/:identifier', taskCompleterController)
 
 server.listen(PORT, () => {
-  console.log(`Server running on: http://localhost:${PORT}`)
+  console.log(`Server running on port: ${PORT}`)
 })

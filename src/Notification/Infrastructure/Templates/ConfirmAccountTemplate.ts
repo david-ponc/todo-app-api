@@ -4,7 +4,7 @@ dotEnv.config()
 const { FRONT_URL } = process.env
 
 export function confirmAccountTemplate (token: string): string {
-  const urlConfirmation = `${FRONT_URL}/confirmacion/${token}`
+  const urlConfirmation = `${FRONT_URL}/confirm/${token}`
   // ts-ignore
   return `
     <html xmlns="http://www.w3.org/1999/xhtml">
