@@ -1,10 +1,15 @@
 import dotEnv from 'dotenv'
 
 dotEnv.config()
-const { FRONT_URL } = process.env
+const FRONT_URL = process.env.FRONT_URL
 
 export function confirmAccountTemplate (token: string): string {
+  const buttonText = 'Confirmar correo'
+  const processMessage = 'REGISTRO'
+  const gratitudeMessage = 'Gracias por registrarte 🥳'
+  const contentMessage = 'Estas a un paso de completar tu registro 🤩, solo debes dar click en el botón de abajo para confirmar tu correo electrónico.'
   const urlConfirmation = `${FRONT_URL}/confirm/${token}`
+
   // ts-ignore
   return `
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -51,7 +56,7 @@ export function confirmAccountTemplate (token: string): string {
             Confirmación de correo electrónico 🔑</div>
           <a target="_blank" style="text-decoration: none;"
             href="${urlConfirmation}"><img border="0" vspace="0" hspace="0"
-            src="https://firebasestorage.googleapis.com/v0/b/upload-file-app-3cd72.appspot.com/o/files%2F0e9e5f70-1c23-4e9d-ae32-b633e0a4e9ff?alt=media&token=f0e1a7de-a245-47d9-9776-cda5541efa38"
+            src="https://firebasestorage.googleapis.com/v0/b/upload-file-app-3cd72.appspot.com/o/files%2Fec15a90d-671e-4d7e-9143-69ee5db126fd?alt=media&token=0e633774-945b-4b73-bed4-1f3eaeb7d1a5"
             width="100" height="30"
             alt="Logo" title="Logo" style="
             color: #FFFFFF;
@@ -75,7 +80,7 @@ export function confirmAccountTemplate (token: string): string {
           padding-bottom: 0;
           color: #FFFFFF;
           font-family: system-ui,sans-serif;" class="supheader">
-            REGISTRO
+            ${processMessage}
         </td>
       </tr>
       <tr>
@@ -83,7 +88,7 @@ export function confirmAccountTemplate (token: string): string {
           padding-top: 5px;
           color: #FFFFFF;
           font-family: sans-serif;" class="header">
-            Gracias por registrarte 🥳
+            ${gratitudeMessage}
         </td>
       </tr>
       <tr>
@@ -91,19 +96,19 @@ export function confirmAccountTemplate (token: string): string {
           padding-top: 15px; 
           color: #FFFFFF;
           font-family: sans-serif;" class="paragraph">
-            Estas a un paso de tener acceso a la aplicación. Solo tienes que dar clic en el siguiente enlace y listo 🤩.
+            ${contentMessage}
         </td>
       </tr>
       <tr>
         <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
           padding-top: 25px;
           padding-bottom: 5px;" class="button"><a
-          href="${urlConfirmation}" target="_blank" style="text-decoration: underline;">
-            <table border="0" cellpadding="0" cellspacing="0" align="center" style="max-width: 240px; min-width: 120px; border-collapse: collapse; border-spacing: 0; padding: 0;"><tr><td align="center" valign="middle" style="padding: 12px 24px; margin: 0; text-decoration: underline; border-collapse: collapse; border-spacing: 0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;"
-              bgcolor="#E9703E"><a target="_blank" style="text-decoration: underline;
-              color: #FFFFFF; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 120%;"
+          href="${urlConfirmation}" target="_blank" style="text-decoration: none;">
+            <table border="0" cellpadding="0" cellspacing="0" align="center" style="max-width: 240px; min-width: 120px; border-collapse: collapse; border-spacing: 0; padding: 0;"><tr><td align="center" valign="middle" style="padding: 12px 24px; margin: 0; text-decoration: none; border-collapse: collapse; border-spacing: 0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;"
+              bgcolor="#ffa526"><a target="_blank" style="text-decoration: none;
+              color: #000000; font-family: sans-serif; font-size: 18px; font-weight: 500; line-height: 120%;"
               href="${urlConfirmation}">
-                Confirmar cuenta
+                ${buttonText}
               </a>
           </td></tr></table></a>
         </td>
@@ -121,7 +126,7 @@ export function confirmAccountTemplate (token: string): string {
           color: #828999;
           font-family: sans-serif;" class="footer">
     
-            To Do List App • David Ponce &copy; ${new Date().getFullYear()} • Github <a href="https://github.com/davidp46/" target="_blank" style="text-decoration: underline; color: #828999; font-family: sans-serif; font-size: 13px; font-weight: 400; line-height: 150%;">davidp46</a>.
+            To Do List App • David Ponce • ${new Date().getFullYear()} • GitHub <a href="https://github.com/david-ponc/" target="_blank" style="text-decoration: underline; color: #828999; font-family: sans-serif; font-size: 13px; font-weight: 400; line-height: 150%;">davidp-ponc</a>.
             <img width="1" height="1" border="0" vspace="0" hspace="0" style="margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;"
             src="https://raw.githubusercontent.com/konsav/email-templates/master/images/tracker.png" />
         </td>
